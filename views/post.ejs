@@ -1,0 +1,14 @@
+<%- include("partials/header") -%>
+<h1 class="prataFont"><%= title %></h1>
+<p><%= content %></p>
+
+
+<form class="myform" action="/edit/<%= id %>" method="GET">
+  <button type="submit" class="btn btn-primary" value="<%=id %>">Edit <i class="fas fa-edit"></i></button>
+</form>
+<form class="myform" action="/delete" method="POST">
+  <button type="submit" name="postId" class="btn btn-danger" value="<%= id %>">Delete <i class="far fa-trash-alt"></i></button>
+</form>
+
+
+<%- include("partials/footer") -%>

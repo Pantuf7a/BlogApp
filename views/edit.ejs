@@ -1,0 +1,18 @@
+<%- include("partials/header") -%>
+
+<h1 class="prataFont">Edit</h1>
+
+<form action="/edit" method="POST">
+  <input type="hidden" name="postId" value="<%= id %>"></input>
+  <div class="form-group">
+    <label class="form-label">New title</label>
+    <input type="text" name="title" value="<%= title %>"  class="form-control title" autocomplete="off" required>
+    <label class="form-label">New content</label>
+    <textarea class="form-control" name="postBody" rows="3" autocomplete="off" required ><%= content %></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary btn-md">Update</button>
+</form>
+
+
+
+<%- include("partials/footer") -%>

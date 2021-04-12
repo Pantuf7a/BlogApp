@@ -1,0 +1,32 @@
+<%- include("partials/header") -%>
+<h1 style="font-family: Prata;">Welcome to my CRUD app</h1>
+
+<div class="homeFont">
+  <p style="font-family: sans-serif;">This a simple <b>CRUD app</b> using <b>EJS, MongoDB, Mongoose, and Express</b>. 
+    <br>In this app you're able to do the following:
+  </p>
+    <ul>
+      <li class="intro"><b>Submit posts</b>: For creating a new post go to the "Compose" page, fill the form and click submit. </li>
+      <li class="intro"><b>Edit posts:</b> To edit a post, open it either by clicking in "Read more" or the post's title, once there click on "edit" button, fill the form with desired changes and click "Update". </li>
+      <li class="intro"><b>Delete posts</b>: To delete a post, open it either by clicking in "Read more" or the post's title, once there just click on the "delete" button, you will be redirected to home page </li>
+    </ul>
+    <br>
+    <p>To learn more about me visit the "About" page and in case you want to chat, see the "Contact" page. <br>Have a great day! </p>
+</div>
+
+<% posts.forEach(post => { %>
+  <h3>
+    <a style="text-decoration: none; color: inherit;" href="/posts/<%= post._id %>">
+    <%= post.title %></h3>
+    </a>
+  <% if (post.content.length >= 100) { %>
+    <p>
+      <%= post.content.substring(0, 100) + " ..." %>
+      <a href="/posts/<%= post._id %>">Read More</a>
+    </p>
+  <% } else { %>
+    <p><%= post.content %></p>
+  <% } %>
+<% }) %>
+
+<%- include("partials/footer") -%>
