@@ -16,6 +16,7 @@ app.use(express.static("public"));
 
 
 //mongoose.connect("mongodb://localhost:27017/blogDB" , {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect("mongodb+srv://admin1:test123@cluster0.xlr2a.mongodb.net/crudBlog", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 /******* SCHEMAS *******/
 const postsSchema = new mongoose.Schema({
@@ -118,6 +119,6 @@ app.post("/edit", (req, res) => {
 
 
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
